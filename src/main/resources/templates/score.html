@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style>
+body{
+    background-color: white;
+}
+.container{
+    display: grid;
+    gap: 10px;
+    overflow-x:hidden;
+    overflow-y:auto;
+    width: 100%;
+    height: 100%;
+
+}
+.top{
+    background-color: #67BED5;
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    left:0;
+    top: 0;
+
+}
+.top_text{
+    margin:auto;
+    font-size: 30px;
+    font-style: Ariel sans-serif;
+    text-align:center;
+    color: white;
+}
+
+.hero{
+    position: absolute;
+    background-color: #67BED5;
+    width: 100%;
+    height: 320px;
+    left: 0;
+    top: 80px;
+    grid-area: 1 / 1;
+
+}
+
+.hero:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left:0;
+    right: 0;
+    margin: 0 auto;
+    border-top: solid 20px #67BED5;
+    border-left: solid 500px transparent;
+    border-right: solid 500px transparent;
+}
+
+.progressBar{
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    margin: 80px 450px;
+    font-style: Ariel sans-serif;
+    border-radius: 50%;
+    background-color: antiquewhite;
+    width: 400px;
+    height: 100px;
+}
+
+.wrapper{
+    display: grid;
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    top: 500px;
+    left:0;
+}
+.sideBar{
+    background-color: antiquewhite;
+    width: 15%;
+    height: 100%;
+    margin: 0 5%;
+}
+.sideText{
+    font-size: 20px;
+    width: 100%;
+}
+.sideRow{
+    text-align: center;
+    font-style: Ariel sans-serif;
+    height: 40px;
+    font-size: 20px;
+}
+.evaluation{
+    display: grid;
+    background-color: antiquewhite;
+    width: 80%;
+    margin: 490px 20% 0;
+}
+.practise, .index{
+    width: 80%;
+    height: 350px;
+    margin: auto;
+}
+.hard_skill, .soft_skill{
+    width: 80%;
+    margin: auto;
+}
+th{
+    font-size: 30px;
+    font-style: Ariel sans-serif;
+    display: flex;
+    text-align: center;
+
+}
+tr{
+    width: 80%;
+    margin: 0 8px;
+    font-weight: lighter;
+    font-size: 23px;
+    font-style: Ariel sans-serif;
+    gap: 20px;
+}
+td{
+    border-bottom: 2px solid #d2d0ce;
+}
+.check, #softSkill, #hardSkill{
+   font-size: 40px;
+   color: green;
+   font-weight: 900;
+}
+a{
+    color: black;
+}
+
+
+
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="top">
+        <p class="top_text">Resume Scanner</p>
+        <p class="arrow_side"></p>
+    </div>
+
+    <div class="hero">
+        <p class="progressBar" >
+            This is a
+            <br th:text="${totalScore}">%
+            Match
+        </p>
+    </div>
+    <div class="wrapper">
+        <div class="sideBar">
+           <table class="sideText">
+               <tr class="sideRow">
+                   <td style="border: none; cursor: pointer"><a href="#practise">Resume Practise</a></td>
+               </tr>
+               <tr class="sideRow">
+                   <td style="border: none; cursor: pointer" ><a href="#hard_skill">Hard Skills</a></td>
+               </tr>
+               <tr class="sideRow">
+                   <td style="border: none; cursor: pointer"><a href="#softSkillT">Soft Skills</a></td>
+               </tr >
+               <tr class="sideRow">
+                   <td style="border: none; cursor: pointer"><a href="#index">Index</a></td>
+               </tr>
+           </table>
+        </div>
+    </div>
+
+    <div class="evaluation">
+        <table class="practise" id="practise">
+            <th>Resume Practice</th>
+
+            <tr class="practiseRow">
+                <td>Email Address</td>
+                <td name="email" class="check" id="email"></td>
+            </tr>
+
+            <tr class="practiseRow">
+                <td>LinkedIn Profile</td>
+                <td name="linkedIn" class="check" id="linked"></td>
+            </tr>
+
+            <tr class="practiseRow">
+                <td>Job Title</td>
+                <td name="title" class="check" id="title"></td>
+            </tr>
+            <tr class="practiseRow">
+                <td>Education</td>
+                <td name="education" class="check" id="education"></td>
+            </tr>
+            <tr class="practiseRow">
+                <td>Section Heading</td>
+                <td name="section" class="check" id="section"></td>
+            </tr>
+            <tr class="practiseRow">
+                <td>Date Formatting</td>
+                <td name="format" class="check" id="date"></td>
+            </tr>
+        </table>
+        <table class="hard_skill" id="hard_skill">
+            <th>Hard Skill</th>
+            <tr th:each="entrySkill:${hardSkill}">
+                <td th:text="${entrySkill.key}"></td>
+                <td  class="hardSkill" id="hardSkill" th:text="${entrySkill.value}"></td>
+            </tr>
+        </table>
+
+        <table class="soft_skill" id="softSkillT">
+            <th>Soft Skill</th>
+            <tr th:each="entry:${softSkill}">
+                <td th:text="${entry.key}"></td>
+                <td  class="softSkill" id="softSkill" th:text="${entry.value}"></td>
+            </tr>
+        </table>
+
+        <table class="index" id="index">
+            <th>Index</th>
+            <tr>
+                <td>Word Count</td>
+                <td name="word" class="check" id="word_count"></td>
+            </tr>
+            <tr>
+                <td>Measuable Result</td>
+                <td name="measure" class="check" id="measureable"></td>
+            </tr>
+            <tr>
+                <td>Action Verb</td>
+                <td name="verb" class="check" id="verb"></td>
+            </tr>
+            <tr>
+                <td>Clitches And Buzzword</td>
+                <td name="clitch" class="check" id="clichesAndBuzz"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script th:inline="javascript">
+    var email = [[${email}]];
+    if(email == true){
+        document.getElementById("email").innerHTML = "&#10003;";
+    }else{
+       document.getElementById("email").innerHTML =  "&#9747;";
+    }
+    var linked = [[${linkedIn}]];
+    if(linked == true){
+        document.getElementById("linked").innerHTML = "&#10003;";
+    }else{
+       document.getElementById("linked").innerHTML =  "&#9747;";
+    }
+
+    var title = [[${title}]];
+    if(title == true){
+        document.getElementById("title").innerHTML = "&#10003;";
+    }else{
+       document.getElementById("title").innerHTML =  "&#9747;";
+    }
+    var education = [[${education}]];
+    if(education == true){
+        document.getElementById("education").innerHTML = "&#10003;";
+    }else{
+       document.getElementById("education").innerHTML =  "&#9747;";
+    }
+    var section = [[${section}]];
+    if(section == true){
+        document.getElementById("section").innerHTML = "&#10003;";
+    }else{
+       document.getElementById("section").innerHTML =  "&#9747;";
+    }
+    var measureable = [[${measureable}]];
+    if(measureable == true){
+        document.getElementById("measureable").innerHTML = "&#10003;";
+    }else{
+       document.getElementById("measureable").innerHTML =  "&#9747;";
+    }
+    var date = [[${date}]];
+    if(date == true){
+        document.getElementById("date").innerHTML = "&#10003;";
+    }else{
+       document.getElementById("date").innerHTML =  "&#9747;";
+    }
+    var word_count = [[${word_count}]];
+    if(word_count == true){
+        document.getElementById("word_count").innerHTML = "&#10003;";
+    }else{
+       document.getElementById("word_count").innerHTML =  "&#9747;";
+    }
+     var clichesAndBuzz = [[${clichesAndBuzz}]];
+    if(clichesAndBuzz == true){
+        document.getElementById("clichesAndBuzz").innerHTML = "&#10003;";
+    }else{
+       document.getElementById("clichesAndBuzz").innerHTML =  "&#9747;";
+    }
+    var verb = [[${verb}]];
+    if(verb == true){
+        document.getElementById("verb").innerHTML = "&#10003;";
+    }else{
+       document.getElementById("verb").innerHTML =  "&#9747;";
+    }
+
+    var hardSkill = document.getElementsByClassName("hardSkill");
+    for(var i = 0; i < hardSkill.length; i++){
+        if(hardSkill[i].textContent == "true"){
+            hardSkill[i].innerHTML= "&#10003;";
+        }else{
+           hardSkill[i].innerHTML =  "&#9747;";
+        }
+    }
+
+    var softSkill = document.getElementsByClassName("softSkill");
+    for(var i = 0; i < softSkill.length; i++){
+        if(softSkill[i].textContent == "true"){
+            softSkill[i].innerHTML= "&#10003;";
+        }else{
+           softSkill[i].innerHTML =  "&#9747;";
+        }
+    }
+
+</script>
+</body>
+</html>

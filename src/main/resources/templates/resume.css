@@ -1,0 +1,161 @@
+body{
+    background-color: white;
+}
+.container{
+    display: grid;
+    gap: 10px;
+    overflow-x:hidden;
+    overflow-y:auto;
+    width: 100%;
+    height: 100%;
+
+}
+.top{
+    background-color: #67BED5;
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    left:0;
+    top: 0;
+
+}
+.top_text{
+    margin:auto;
+    font-size: 30px;
+    font-style: Ariel sans-serif;
+    text-align:center;
+    color: white;
+}
+
+.hero{
+    position: absolute;
+    background-color: #67BED5;
+    width: 100%;
+    height: 320px;
+    left: 0;
+    top: 80px;
+    grid-area: 1 / 1;
+
+}
+
+.hero:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left:0;
+    right: 0;
+    margin: 0 auto;
+    border-top: solid 20px #67BED5;
+    border-left: solid 500px transparent;
+    border-right: solid 500px transparent;
+}
+
+.hero_text{
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-style: Ariel sans-serif;
+}
+
+.end_text{
+    font-size: 15px;
+    color: white;
+    margin: auto;
+    padding: 140px 0px 1px;
+    font-weight: bold;
+    text-align: center;
+    font-style: Ariel sans-serif;
+}
+
+.arrow_down {
+    margin: 2% 50% 0px;
+    position: absolute;
+    border: solid #67BED5;
+    border-width: 0 5px 5px 0;
+    display: inline-block;
+    padding: 5px;
+    transform: rotate(45deg);
+}
+.wrapper{
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    top: 500px;
+    left:0;
+}
+.resume_text{
+    background-color: antiquewhite;
+    font-style: Ariel sans-serif;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 80px;
+    color: #C6CACB;
+}
+.back_div{
+    width: 350px;
+    height: 355px;
+    border: 1px solid #67BED5;
+    margin: 0 10% 0;
+    border-radius: 15px;
+    background-color: antiquewhite;
+}
+.file_text{
+    width: 345px;
+    height: 350px;
+    border-color: #67BED5;
+    border-radius: 15px;
+    background-color: transparent;
+}
+
+.job{
+    display: grid;
+    gap: 0;
+    background-color: antiquewhite;
+    width: 350px;
+    height: 355px;
+    margin: -360px 60% 0;
+    border: 1px solid #67BED5;
+    border-radius: 15px;
+}
+.job_title_label{
+    font-style: Ariel sans-serif;
+    font-size: 20px;
+    margin: 30px 20px;
+    bottom: 0;
+    color: #C6CACB;
+}
+.job_title{
+    height: 30px;
+    width: 300px;
+    margin: -80px 20px;
+    border: 1px solid #BABEC0;
+    background-color: #EBF0F3;
+    font-style: Ariel sans-serif;
+    font-size: 15px;
+    color: #525456
+}
+
+.job_description_label{
+    font-style: Ariel sans-serif;
+    font-size: 20px;
+    margin: -80px 20px;
+    bottom: 0;
+    color: #C6CACB;
+}
+
+.job_description{
+    height: 120px;
+    width: 300px;
+    margin: -100px 20px;
+    border: 1px solid #BABEC0;
+    background-color: #EBF0F3;
+    font-style: Ariel sans-serif;
+    font-size: 15px;
+    color: #525456
+}
+textarea{
+    resize: none;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+<div class="container">
+    <div class="top">
+        <p class="top_text">Resume Scanner</p>
+        <p class="arrow_side"></p>
+    </div>
+
+    <div class="hero">
+        <p class="hero_text">
+            Build Your Future
+            <br />
+            <br />
+            Your Reputation is often your resume
+        </p>
+        <p class="end_text" style="cursor:pointer"><a href="#back_div" style="color: white; text-decoration: none;">get started here</a></p>
+        <a href="#back_div" class="arrow_down"></a>
+    </div>
+    <form class="wrapper" method="post" action="/Resume" enctype="multipart/form-data">
+        <div class="resume" id="resume" >
+            <div class="front_div">
+                <div class="firstName_text">
+                    <label for="firstName" class="firstName_label">First Name</label>
+                    <input
+                            type="text"
+                            class="firstName"
+                            id="firstName"
+                            name="firstName"
+                    />
+                </div>
+
+                <div class="lastName_text">
+                    <label for="lastName" class="lastName_label">Last Name</label>
+                    <input
+                            type="text"
+                            class="lastName"
+                            id="lastName"
+                            name="lastName"
+                    />
+                </div>
+                <div class="email_text">
+                    <label for="email" class="email_label">Email</label>
+                    <input type="text" class="email" id="email" name="email" />
+                </div>
+            </div>
+        </div>
+        <div class="middle_div">
+            <div class="resume_submit_form">
+                <p class="resume_text" id="resume_text">
+                    Upload Your <br /><br />
+                    Resume Here<br />
+                    <br />
+                </p>
+                <div class="btn">
+                    <div class="update_btn" style="cursor:pointer">Upload File</div>
+                    <input
+                            type="file"
+                            name="file"
+                            style="display: none"
+                            id="file_upload"
+
+                    />
+                </div>
+            </div>
+        </div>
+    </form>
+    <button type="submit" style="cursor:pointer" class="submit" id="submit" onclick="firstClick()">Submit</button>
+</div>
+<script
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+        type="text/javascript"
+></script>
+<script src="Javascript/index.js"></script>
+</body>
+</html>
