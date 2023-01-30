@@ -110,7 +110,7 @@ public class UserController {
         if(cliches.size() > 3){
             clichesAndBuzz = true;
         }
-        if(clichesAndBuzz)indexScore++;
+        if(clichesAndBuzz)indexScore--;
         model.addAttribute("clichesAndBuzz", clichesAndBuzz);
         boolean verb = false;
         if(verbs.size() > 5){
